@@ -29,6 +29,14 @@ export class HeroDetailComponent implements OnInit {
       .subscribe(hero => this.hero = hero);
   }
 
+  //queremos actualizar los datos con el imput
+  //nos suscribimos al servicio y cuando termine vuelvaa la lista para ver el resultado
+  save(hero: Hero):void{
+    this.heroService
+      .updateHero(hero)
+      .subscribe(() => this.goBack())
+  }
+
   goBack(): void {
     this.location.back();
   }
